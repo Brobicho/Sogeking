@@ -1,4 +1,5 @@
 ![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge) 
+![Status](https://img.shields.io/badge/status-operational-brightgreen?style=for-the-badge)
 ![Updates](https://img.shields.io/badge/updates-on--hold-orange?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-free-blue?style=for-the-badge)
 
