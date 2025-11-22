@@ -48,7 +48,7 @@ export class Listeners extends EventEmitter {
   }): Promise<number> {
     return this.connection.onProgramAccountChange(
       MAINNET_PROGRAM_ID.AmmV4,
-      async (updatedAccountInfo) => {
+      async (updatedAccountInfo: any) => {
         this.emit('pool', updatedAccountInfo);
       },
       this.connection.commitment,
@@ -78,7 +78,7 @@ export class Listeners extends EventEmitter {
   }): Promise<number> {
     return this.connection.onProgramAccountChange(
       TOKEN_PROGRAM_ID,
-      async (updatedAccountInfo) => {
+      async (updatedAccountInfo: any) => {
         this.emit('wallet', updatedAccountInfo);
       },
       this.connection.commitment,
