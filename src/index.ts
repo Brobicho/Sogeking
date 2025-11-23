@@ -5,6 +5,7 @@ import { swapConfig, swapOut } from './config'; // Import the swap configuration
 import readline from 'readline';
 import { LiquidityPoolKeysV4, TOKEN_PROGRAM_ID, WSOL} from 'raydium-hakiun-sdk'
 import { AccountLayout, getOrCreateAssociatedTokenAccount } from '@solana/spl-token';
+import { formatDexscreenerUrl } from './utils/format.utils';
 
 /**
  * Prompts the user for input.
@@ -132,7 +133,7 @@ async function watchPriceAndSell(raydiumSwap: any, poolKeys: any)
         const txidSellPromise = await raydiumSwap.sendLegacyTransaction(txSellPromise as Transaction, 20);
         //console.log(`txBuy: https://solscan.io/tx/${txidBuyPromise}`);
         console.log(`txSell: https://solscan.io/tx/${txidSellPromise}`);
-        console.log(`https://dexscreener.com/solana/${swapConfig.tokenBAddress}?maker=Ajyj2VA2F6s32q6Q3Yt7zwrbekJ9Qr8L6UyNFL7psKLf`);
+        console.log(formatDexscreenerUrl(swapConfig.tokenBAddress));
         PressToSell = false;
         sellRetries++;
         if (currentPrice < lossThreshold) {
@@ -377,7 +378,7 @@ async function logWallet(walletAddress: string) {
           );
           await raydiumSwap.sendLegacyTransaction(txSellPromise as Transaction, 20);
           console.log('Sell transaction sent at:', new Date().toISOString());
-          console.log(`https://dexscreener.com/solana/${tokenAddress}?maker=Ajyj2VA2F6s32q6Q3Yt7zwrbekJ9Qr8L6UyNFL7psKLf`);
+          console.log(formatDexscreenerUrl(tokenAddress));
           }
         catch (error) {
           console.log('Error while trying to sell:', error);

@@ -1,3 +1,5 @@
+export declare function getPublicKeyFromPrivateKey(privateKey: string): string;
+export declare function getWalletAddress(): string;
 export declare function formatPercentage(value: number, decimals?: number): string;
 export declare function formatColoredPercentage(value: number, decimals?: number): string;
 export declare function formatSolAmount(lamports: number): string;

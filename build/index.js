@@ -10,6 +10,7 @@ const config_1 = require("./config");
 const readline_1 = __importDefault(require("readline"));
 const raydium_hakiun_sdk_1 = require("raydium-hakiun-sdk");
 const spl_token_1 = require("@solana/spl-token");
+const format_utils_1 = require("./utils/format.utils");
 function getUserInput(question) {
     const rl = readline_1.default.createInterface({
         input: process.stdin,
@@ -93,7 +94,7 @@ async function watchPriceAndSell(raydiumSwap, poolKeys) {
                 const txSellPromise = await raydiumSwap.getSwapTransaction(config_1.swapConfig.tokenAAddress, amount / (10 ** raydiumSwap.lpDecimals) * multiplier, poolKeys, config_1.swapOut.maxLamports, false, config_1.swapOut.direction);
                 const txidSellPromise = await raydiumSwap.sendLegacyTransaction(txSellPromise, 20);
                 console.log(`txSell: https://solscan.io/tx/${txidSellPromise}`);
-                console.log(`https://dexscreener.com/solana/${config_1.swapConfig.tokenBAddress}?maker=Ajyj2VA2F6s32q6Q3Yt7zwrbekJ9Qr8L6UyNFL7psKLf`);
+                console.log((0, format_utils_1.formatDexscreenerUrl)(config_1.swapConfig.tokenBAddress));
                 PressToSell = false;
                 sellRetries++;
                 if (currentPrice < lossThreshold) {
@@ -264,7 +265,7 @@ async function logWallet(walletAddress) {
                     let txSellPromise = await raydiumSwap.getSwapTransaction(config_1.swapConfig.tokenAAddress, myAmount / (10 ** raydiumSwap.lpDecimals) * multiplier, poolKeys, config_1.swapOut.maxLamports, false, config_1.swapOut.direction);
                     await raydiumSwap.sendLegacyTransaction(txSellPromise, 20);
                     console.log('Sell transaction sent at:', new Date().toISOString());
-                    console.log(`https://dexscreener.com/solana/${tokenAddress}?maker=Ajyj2VA2F6s32q6Q3Yt7zwrbekJ9Qr8L6UyNFL7psKLf`);
+                    console.log((0, format_utils_1.formatDexscreenerUrl)(tokenAddress));
                 }
                 catch (error) {
                     console.log('Error while trying to sell:', error);
