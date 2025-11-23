@@ -7,7 +7,7 @@
 
 AIO Solana trading bot for Raydium DEX with advanced features such as price monitoring, copy trading and automated sniping.
 
-## 🚀 Features
+## ✨ Features
 
 - **Automated Swapping**: Execute token swaps on Raydium with configurable parameters
 - **Price Monitoring**: Real-time price tracking with take-profit and stop-loss
@@ -23,7 +23,7 @@ AIO Solana trading bot for Raydium DEX with advanced features such as price moni
 - Solana wallet with SOL for gas fees
 - RPC endpoint (Helius for example)
 
-## 🛠️ Installation
+## ⚙️ Installation
 
 1. Clone the repository:
 ```
